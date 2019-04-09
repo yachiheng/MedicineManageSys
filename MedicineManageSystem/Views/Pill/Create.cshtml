@@ -1,0 +1,116 @@
+﻿@using MedicineManageSystem.Models
+@model MedicineManageSystem.Models.Pill
+
+@{
+    ViewBag.Title = "藥品新增";
+    IEnumerable<Pill_Factory_Category> category = ViewBag.Category;
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#fImg').change(function () {
+            var file = $('#fImg').get(0).files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            reader.onload = function (e) {
+                console.log(e);
+                $('#imgshow').get(0).src = e.target.result;
+            }
+        })
+    });
+</script>
+
+<h2>藥品新增</h2>
+
+<form action="@Url.Action("Create")" method="post" enctype="multipart/form-data">
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">藥品名稱 </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.P_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.P_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">藥品代碼</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.P_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.P_code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">品名</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.P_product_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.P_product_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">學名</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.P_scientific_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.P_scientific_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">藥廠名稱</label>
+            <div class="col-md-10">
+                <select id="藥廠編號" name="藥廠編號" class="form-control">
+                    @foreach (var item in category)
+                    {
+                        <option value="@item.P_pharmaceutical_factory_Id">@item.P_pharmaceutical_factory</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">適應症</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.P_remark, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.P_remark, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">藥品圖片</label>
+            <div class="col-md-10">
+                <input type="file" id="fImg" name="fImg" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                圖片預覽
+            </label>
+            <div class="col-md-10">
+                <img id="imgshow" src="" height="300" width="300" alt="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="新增" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@if (ViewBag.IsPillt != null)
+{
+    <div class="alert alert-danger">
+        <strong>藥品代碼不能重複！</strong> 請重新建立！！
+    </div>
+}

@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Guardian_AngelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Accident">
+    <Key>
+      <PropertyRef Name="A_id" />
+    </Key>
+    <Property Name="A_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="A_style" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="A_date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="A_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="APic" Relationship="Self.FK_Accident_APic" FromRole="Accident" ToRole="APic" />
+    <NavigationProperty Name="Juxtapose" Relationship="Self.FK_Accident_Juxtapose" FromRole="Accident" ToRole="Juxtapose" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_Accident_Oldman_Data" FromRole="Accident" ToRole="Oldman_Data" />
+  </EntityType>
+  <EntityType Name="APic">
+    <Key>
+      <PropertyRef Name="A_status" />
+    </Key>
+    <Property Name="A_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="A_pic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Accident" Relationship="Self.FK_Accident_APic" FromRole="APic" ToRole="Accident" />
+  </EntityType>
+  <EntityType Name="Consulation">
+    <Key>
+      <PropertyRef Name="C_id" />
+    </Key>
+    <Property Name="C_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="C_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="C_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="C_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="C_number" Type="Int32" Nullable="false" />
+    <Property Name="C_time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_Consultation_Oldman_Data" FromRole="Consulation" ToRole="Oldman_Data" />
+  </EntityType>
+  <EntityType Name="Emergency_Contact">
+    <Key>
+      <PropertyRef Name="E_id" />
+    </Key>
+    <Property Name="E_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="E_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="E_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="E_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="E_priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Relationship" Relationship="Self.FK_Relationship_Emergency_Contact" FromRole="Emergency_Contact" ToRole="Relationship" />
+  </EntityType>
+  <EntityType Name="GPS">
+    <Key>
+      <PropertyRef Name="G_id" />
+    </Key>
+    <Property Name="G_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="x_axis" Type="Double" Nullable="false" />
+    <Property Name="y_axis" Type="Double" Nullable="false" />
+    <Property Name="z_axis" Type="Double" Nullable="false" />
+    <Property Name="G_time" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="O_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_GPS_Oldman_Data" FromRole="GPS" ToRole="Oldman_Data" />
+  </EntityType>
+  <EntityType Name="Juxtapose">
+    <Key>
+      <PropertyRef Name="A_style" />
+    </Key>
+    <Property Name="A_style" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="J_text" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Accident" Relationship="Self.FK_Accident_Juxtapose" FromRole="Juxtapose" ToRole="Accident" />
+  </EntityType>
+  <EntityType Name="Manage_Account">
+    <Key>
+      <PropertyRef Name="MamageId" />
+    </Key>
+    <Property Name="MamageId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Manage_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Manage_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Manage_authorization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="M_id" />
+    </Key>
+    <Property Name="M_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="M_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="M_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_Message_Oldman_Data" FromRole="Message" ToRole="Oldman_Data" />
+  </EntityType>
+  <EntityType Name="Notice">
+    <Key>
+      <PropertyRef Name="N_id" />
+    </Key>
+    <Property Name="N_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="N_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="N_startdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="N_enddate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NPGrouping" Relationship="Self.FK_Grouping_Notice" FromRole="Notice" ToRole="NPGrouping" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_Notice_Oldman_Data" FromRole="Notice" ToRole="Oldman_Data" />
+    <NavigationProperty Name="Time" Relationship="Self.FK_Time_Notice" FromRole="Notice" ToRole="Time" />
+  </EntityType>
+  <EntityType Name="NPGrouping">
+    <Key>
+      <PropertyRef Name="P_id" />
+      <PropertyRef Name="N_id" />
+    </Key>
+    <Property Name="P_id" Type="Int32" Nullable="false" />
+    <Property Name="N_id" Type="Int32" Nullable="false" />
+    <Property Name="P_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Notice" Relationship="Self.FK_Grouping_Notice" FromRole="NPGrouping" ToRole="Notice" />
+    <NavigationProperty Name="Pill" Relationship="Self.FK_Grouping_Pill1" FromRole="NPGrouping" ToRole="Pill" />
+  </EntityType>
+  <EntityType Name="Oldman_Data">
+    <Key>
+      <PropertyRef Name="O_id" />
+    </Key>
+    <Property Name="O_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="O_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="O_birthday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_blood" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="O_disease" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ｏ_qrid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_qrcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="O_photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="U_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Accident" Relationship="Self.FK_Accident_Oldman_Data" FromRole="Oldman_Data" ToRole="Accident" />
+    <NavigationProperty Name="Consulation" Relationship="Self.FK_Consultation_Oldman_Data" FromRole="Oldman_Data" ToRole="Consulation" />
+    <NavigationProperty Name="GPS" Relationship="Self.FK_GPS_Oldman_Data" FromRole="Oldman_Data" ToRole="GPS" />
+    <NavigationProperty Name="Message" Relationship="Self.FK_Message_Oldman_Data" FromRole="Oldman_Data" ToRole="Message" />
+    <NavigationProperty Name="Notice" Relationship="Self.FK_Notice_Oldman_Data" FromRole="Oldman_Data" ToRole="Notice" />
+    <NavigationProperty Name="Security" Relationship="Self.FK_Area_Oldman_Data" FromRole="Oldman_Data" ToRole="Security" />
+    <NavigationProperty Name="User_Data" Relationship="Self.FK_Oldman_Data_User_Data" FromRole="Oldman_Data" ToRole="User_Data" />
+    <NavigationProperty Name="Relationship" Relationship="Self.FK_Relationship_Oldman_Data" FromRole="Oldman_Data" ToRole="Relationship" />
+  </EntityType>
+  <EntityType Name="Pill">
+    <Key>
+      <PropertyRef Name="P_id" />
+    </Key>
+    <Property Name="P_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="P_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_pharmaceutical_factory_Id" Type="Int32" />
+    <Property Name="P_product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_scientific_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="P_photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="P_create_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_update_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_editor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NPGrouping" Relationship="Self.FK_Grouping_Pill1" FromRole="Pill" ToRole="NPGrouping" />
+    <NavigationProperty Name="Pill_Factory_Category" Relationship="Self.FK__Pill__P_pharmace__71D1E811" FromRole="Pill" ToRole="Pill_Factory_Category" />
+  </EntityType>
+  <EntityType Name="Pill_Factory_Category">
+    <Key>
+      <PropertyRef Name="P_pharmaceutical_factory_Id" />
+    </Key>
+    <Property Name="P_pharmaceutical_factory_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="P_pharmaceutical_factory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_edit_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_create_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="P_update_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Pill" Relationship="Self.FK__Pill__P_pharmace__71D1E811" FromRole="Pill_Factory_Category" ToRole="Pill" />
+  </EntityType>
+  <EntityType Name="Relationship">
+    <Key>
+      <PropertyRef Name="O_id" />
+      <PropertyRef Name="E_id" />
+    </Key>
+    <Property Name="O_id" Type="Int32" Nullable="false" />
+    <Property Name="E_id" Type="Int32" Nullable="false" />
+    <Property Name="relationship1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Emergency_Contact" Relationship="Self.FK_Relationship_Emergency_Contact" FromRole="Relationship" ToRole="Emergency_Contact" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_Relationship_Oldman_Data" FromRole="Relationship" ToRole="Oldman_Data" />
+  </EntityType>
+  <EntityType Name="Security">
+    <Key>
+      <PropertyRef Name="GB_id" />
+    </Key>
+    <Property Name="GB_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gbNumber" Type="Int32" />
+    <Property Name="cenLng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cenLat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="neLng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="neLat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="swLng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="swLat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="O_id" Type="Int32" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_Area_Oldman_Data" FromRole="Security" ToRole="Oldman_Data" />
+  </EntityType>
+  <EntityType Name="Time">
+    <Key>
+      <PropertyRef Name="T_id" />
+    </Key>
+    <Property Name="T_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="N_id" Type="Int32" Nullable="false" />
+    <Property Name="T_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Notice" Relationship="Self.FK_Time_Notice" FromRole="Time" ToRole="Notice" />
+  </EntityType>
+  <EntityType Name="User_Data">
+    <Key>
+      <PropertyRef Name="U_id" />
+    </Key>
+    <Property Name="U_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="U_lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="U_fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="U_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="U_account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="U_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="U_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="U_organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Oldman_Data" Relationship="Self.FK_Oldman_Data_User_Data" FromRole="User_Data" ToRole="Oldman_Data" />
+  </EntityType>
+  <Association Name="FK_Accident_APic">
+    <End Role="APic" Type="Self.APic" Multiplicity="1" />
+    <End Role="Accident" Type="Self.Accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APic">
+        <PropertyRef Name="A_status" />
+      </Principal>
+      <Dependent Role="Accident">
+        <PropertyRef Name="A_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Accident_Juxtapose">
+    <End Role="Juxtapose" Type="Self.Juxtapose" Multiplicity="1" />
+    <End Role="Accident" Type="Self.Accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Juxtapose">
+        <PropertyRef Name="A_style" />
+      </Principal>
+      <Dependent Role="Accident">
+        <PropertyRef Name="A_style" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Accident_Oldman_Data">
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="1" />
+    <End Role="Accident" Type="Self.Accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oldman_Data">
+        <PropertyRef Name="O_id" />
+      </Principal>
+      <Dependent Role="Accident">
+        <PropertyRef Name="O_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consultation_Oldman_Data">
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="1" />
+    <End Role="Consulation" Type="Self.Consulation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oldman_Data">
+        <PropertyRef Name="O_id" />
+      </Principal>
+      <Dependent Role="Consulation">
+        <PropertyRef Name="O_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_Emergency_Contact">
+    <End Role="Emergency_Contact" Type="Self.Emergency_Contact" Multiplicity="1" />
+    <End Role="Relationship" Type="Self.Relationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emergency_Contact">
+        <PropertyRef Name="E_id" />
+      </Principal>
+      <Dependent Role="Relationship">
+        <PropertyRef Name="E_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GPS_Oldman_Data">
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="1" />
+    <End Role="GPS" Type="Self.GPS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oldman_Data">
+        <PropertyRef Name="O_id" />
+      </Principal>
+      <Dependent Role="GPS">
+        <PropertyRef Name="O_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_Oldman_Data">
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oldman_Data">
+        <PropertyRef Name="O_id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="O_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grouping_Notice">
+    <End Role="Notice" Type="Self.Notice" Multiplicity="1" />
+    <End Role="NPGrouping" Type="Self.NPGrouping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notice">
+        <PropertyRef Name="N_id" />
+      </Principal>
+      <Dependent Role="NPGrouping">
+        <PropertyRef Name="N_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notice_Oldman_Data">
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="1" />
+    <End Role="Notice" Type="Self.Notice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oldman_Data">
+        <PropertyRef Name="O_id" />
+      </Principal>
+      <Dependent Role="Notice">
+        <PropertyRef Name="O_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Time_Notice">
+    <End Role="Notice" Type="Self.Notice" Multiplicity="1" />
+    <End Role="Time" Type="Self.Time" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notice">
+        <PropertyRef Name="N_id" />
+      </Principal>
+      <Dependent Role="Time">
+        <PropertyRef Name="N_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grouping_Pill1">
+    <End Role="Pill" Type="Self.Pill" Multiplicity="1" />
+    <End Role="NPGrouping" Type="Self.NPGrouping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pill">
+        <PropertyRef Name="P_id" />
+      </Principal>
+      <Dependent Role="NPGrouping">
+        <PropertyRef Name="P_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Area_Oldman_Data">
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="0..1" />
+    <End Role="Security" Type="Self.Security" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oldman_Data">
+        <PropertyRef Name="O_id" />
+      </Principal>
+      <Dependent Role="Security">
+        <PropertyRef Name="O_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oldman_Data_User_Data">
+    <End Role="User_Data" Type="Self.User_Data" Multiplicity="1" />
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Data">
+        <PropertyRef Name="U_id" />
+      </Principal>
+      <Dependent Role="Oldman_Data">
+        <PropertyRef Name="U_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_Oldman_Data">
+    <End Role="Oldman_Data" Type="Self.Oldman_Data" Multiplicity="1" />
+    <End Role="Relationship" Type="Self.Relationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oldman_Data">
+        <PropertyRef Name="O_id" />
+      </Principal>
+      <Dependent Role="Relationship">
+        <PropertyRef Name="O_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pill__P_pharmace__71D1E811">
+    <End Role="Pill_Factory_Category" Type="Self.Pill_Factory_Category" Multiplicity="0..1" />
+    <End Role="Pill" Type="Self.Pill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pill_Factory_Category">
+        <PropertyRef Name="P_pharmaceutical_factory_Id" />
+      </Principal>
+      <Dependent Role="Pill">
+        <PropertyRef Name="P_pharmaceutical_factory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Guardian_AngelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accident" EntityType="Self.Accident" />
+    <EntitySet Name="APic" EntityType="Self.APic" />
+    <EntitySet Name="Consulation" EntityType="Self.Consulation" />
+    <EntitySet Name="Emergency_Contact" EntityType="Self.Emergency_Contact" />
+    <EntitySet Name="GPS" EntityType="Self.GPS" />
+    <EntitySet Name="Juxtapose" EntityType="Self.Juxtapose" />
+    <EntitySet Name="Manage_Account" EntityType="Self.Manage_Account" />
+    <EntitySet Name="Message" EntityType="Self.Message" />
+    <EntitySet Name="Notice" EntityType="Self.Notice" />
+    <EntitySet Name="NPGrouping" EntityType="Self.NPGrouping" />
+    <EntitySet Name="Oldman_Data" EntityType="Self.Oldman_Data" />
+    <EntitySet Name="Pill" EntityType="Self.Pill" />
+    <EntitySet Name="Pill_Factory_Category" EntityType="Self.Pill_Factory_Category" />
+    <EntitySet Name="Relationship" EntityType="Self.Relationship" />
+    <EntitySet Name="Security" EntityType="Self.Security" />
+    <EntitySet Name="Time" EntityType="Self.Time" />
+    <EntitySet Name="User_Data" EntityType="Self.User_Data" />
+    <AssociationSet Name="FK_Accident_APic" Association="Self.FK_Accident_APic">
+      <End Role="APic" EntitySet="APic" />
+      <End Role="Accident" EntitySet="Accident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accident_Juxtapose" Association="Self.FK_Accident_Juxtapose">
+      <End Role="Juxtapose" EntitySet="Juxtapose" />
+      <End Role="Accident" EntitySet="Accident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accident_Oldman_Data" Association="Self.FK_Accident_Oldman_Data">
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+      <End Role="Accident" EntitySet="Accident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consultation_Oldman_Data" Association="Self.FK_Consultation_Oldman_Data">
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+      <End Role="Consulation" EntitySet="Consulation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_Emergency_Contact" Association="Self.FK_Relationship_Emergency_Contact">
+      <End Role="Emergency_Contact" EntitySet="Emergency_Contact" />
+      <End Role="Relationship" EntitySet="Relationship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GPS_Oldman_Data" Association="Self.FK_GPS_Oldman_Data">
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+      <End Role="GPS" EntitySet="GPS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_Oldman_Data" Association="Self.FK_Message_Oldman_Data">
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grouping_Notice" Association="Self.FK_Grouping_Notice">
+      <End Role="Notice" EntitySet="Notice" />
+      <End Role="NPGrouping" EntitySet="NPGrouping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notice_Oldman_Data" Association="Self.FK_Notice_Oldman_Data">
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+      <End Role="Notice" EntitySet="Notice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Time_Notice" Association="Self.FK_Time_Notice">
+      <End Role="Notice" EntitySet="Notice" />
+      <End Role="Time" EntitySet="Time" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grouping_Pill1" Association="Self.FK_Grouping_Pill1">
+      <End Role="Pill" EntitySet="Pill" />
+      <End Role="NPGrouping" EntitySet="NPGrouping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Area_Oldman_Data" Association="Self.FK_Area_Oldman_Data">
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+      <End Role="Security" EntitySet="Security" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oldman_Data_User_Data" Association="Self.FK_Oldman_Data_User_Data">
+      <End Role="User_Data" EntitySet="User_Data" />
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_Oldman_Data" Association="Self.FK_Relationship_Oldman_Data">
+      <End Role="Oldman_Data" EntitySet="Oldman_Data" />
+      <End Role="Relationship" EntitySet="Relationship" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pill__P_pharmace__71D1E811" Association="Self.FK__Pill__P_pharmace__71D1E811">
+      <End Role="Pill_Factory_Category" EntitySet="Pill_Factory_Category" />
+      <End Role="Pill" EntitySet="Pill" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

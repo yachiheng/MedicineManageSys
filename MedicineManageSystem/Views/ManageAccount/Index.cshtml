@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MedicineManageSystem.Models.Manage_Account>
+
+@{
+    ViewBag.Title = "藥品管理者帳號";
+}
+
+<h2>藥品管理者帳號</h2>
+
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            帳號
+        </th>
+        <th>
+           密碼
+        </th>
+        <th>
+            角色
+        </th>
+        <th>
+            權限
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MamageId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manage_Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manage_Role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manage_authorization)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { userid = item.MamageId}, new { @class = "btn btn-success" })
+            @Html.ActionLink("刪除", "Delete", new { userid = item.MamageId }, new { @class = "btn btn-danger", onclick = "return confirm('是否刪除？');" })
+        </td>
+    </tr>
+}
+
+</table>

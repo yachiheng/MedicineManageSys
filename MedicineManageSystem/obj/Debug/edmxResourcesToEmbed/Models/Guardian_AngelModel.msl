@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Guardian_AngelModelStoreContainer" CdmEntityContainer="Guardian_AngelEntities">
+    <EntitySetMapping Name="Accident">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Accident">
+        <MappingFragment StoreEntitySet="Accident">
+          <ScalarProperty Name="A_id" ColumnName="A_id" />
+          <ScalarProperty Name="A_style" ColumnName="A_style" />
+          <ScalarProperty Name="A_date" ColumnName="A_date" />
+          <ScalarProperty Name="A_status" ColumnName="A_status" />
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APic">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.APic">
+        <MappingFragment StoreEntitySet="APic">
+          <ScalarProperty Name="A_status" ColumnName="A_status" />
+          <ScalarProperty Name="A_pic" ColumnName="A_pic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consulation">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Consulation">
+        <MappingFragment StoreEntitySet="Consulation">
+          <ScalarProperty Name="C_id" ColumnName="C_id" />
+          <ScalarProperty Name="C_name" ColumnName="C_name" />
+          <ScalarProperty Name="C_address" ColumnName="C_address" />
+          <ScalarProperty Name="C_date" ColumnName="C_date" />
+          <ScalarProperty Name="C_phone" ColumnName="C_phone" />
+          <ScalarProperty Name="C_number" ColumnName="C_number" />
+          <ScalarProperty Name="C_time" ColumnName="C_time" />
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emergency_Contact">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Emergency_Contact">
+        <MappingFragment StoreEntitySet="Emergency_Contact">
+          <ScalarProperty Name="E_id" ColumnName="E_id" />
+          <ScalarProperty Name="E_name" ColumnName="E_name" />
+          <ScalarProperty Name="E_phone" ColumnName="E_phone" />
+          <ScalarProperty Name="E_email" ColumnName="E_email" />
+          <ScalarProperty Name="E_priority" ColumnName="E_priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GPS">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.GPS">
+        <MappingFragment StoreEntitySet="GPS">
+          <ScalarProperty Name="G_id" ColumnName="G_id" />
+          <ScalarProperty Name="x_axis" ColumnName="x_axis" />
+          <ScalarProperty Name="y_axis" ColumnName="y_axis" />
+          <ScalarProperty Name="z_axis" ColumnName="z_axis" />
+          <ScalarProperty Name="G_time" ColumnName="G_time" />
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Juxtapose">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Juxtapose">
+        <MappingFragment StoreEntitySet="Juxtapose">
+          <ScalarProperty Name="A_style" ColumnName="A_style" />
+          <ScalarProperty Name="J_text" ColumnName="J_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manage_Account">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Manage_Account">
+        <MappingFragment StoreEntitySet="Manage_Account">
+          <ScalarProperty Name="MamageId" ColumnName="MamageId" />
+          <ScalarProperty Name="Manage_Password" ColumnName="Manage_Password" />
+          <ScalarProperty Name="Manage_Role" ColumnName="Manage_Role" />
+          <ScalarProperty Name="Manage_authorization" ColumnName="Manage_authorization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="M_id" ColumnName="M_id" />
+          <ScalarProperty Name="M_message" ColumnName="M_message" />
+          <ScalarProperty Name="M_date" ColumnName="M_date" />
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notice">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Notice">
+        <MappingFragment StoreEntitySet="Notice">
+          <ScalarProperty Name="N_id" ColumnName="N_id" />
+          <ScalarProperty Name="N_name" ColumnName="N_name" />
+          <ScalarProperty Name="N_startdate" ColumnName="N_startdate" />
+          <ScalarProperty Name="N_enddate" ColumnName="N_enddate" />
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NPGrouping">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.NPGrouping">
+        <MappingFragment StoreEntitySet="NPGrouping">
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="N_id" ColumnName="N_id" />
+          <ScalarProperty Name="P_number" ColumnName="P_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oldman_Data">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Oldman_Data">
+        <MappingFragment StoreEntitySet="Oldman_Data">
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+          <ScalarProperty Name="O_name" ColumnName="O_name" />
+          <ScalarProperty Name="O_birthday" ColumnName="O_birthday" />
+          <ScalarProperty Name="O_phone" ColumnName="O_phone" />
+          <ScalarProperty Name="O_blood" ColumnName="O_blood" />
+          <ScalarProperty Name="O_disease" ColumnName="O_disease" />
+          <ScalarProperty Name="O_address" ColumnName="O_address" />
+          <ScalarProperty Name="Ｏ_qrid" ColumnName="Ｏ_qrid" />
+          <ScalarProperty Name="O_qrcode" ColumnName="O_qrcode" />
+          <ScalarProperty Name="O_photo" ColumnName="O_photo" />
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pill">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Pill">
+        <MappingFragment StoreEntitySet="Pill">
+          <ScalarProperty Name="P_id" ColumnName="P_id" />
+          <ScalarProperty Name="P_name" ColumnName="P_name" />
+          <ScalarProperty Name="P_pharmaceutical_factory_Id" ColumnName="P_pharmaceutical_factory_Id" />
+          <ScalarProperty Name="P_product_name" ColumnName="P_product_name" />
+          <ScalarProperty Name="P_scientific_name" ColumnName="P_scientific_name" />
+          <ScalarProperty Name="P_code" ColumnName="P_code" />
+          <ScalarProperty Name="P_remark" ColumnName="P_remark" />
+          <ScalarProperty Name="P_photo" ColumnName="P_photo" />
+          <ScalarProperty Name="P_create_date" ColumnName="P_create_date" />
+          <ScalarProperty Name="P_update_date" ColumnName="P_update_date" />
+          <ScalarProperty Name="P_editor" ColumnName="P_editor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pill_Factory_Category">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Pill_Factory_Category">
+        <MappingFragment StoreEntitySet="Pill_Factory_Category">
+          <ScalarProperty Name="P_pharmaceutical_factory_Id" ColumnName="P_pharmaceutical_factory_Id" />
+          <ScalarProperty Name="P_pharmaceutical_factory" ColumnName="P_pharmaceutical_factory" />
+          <ScalarProperty Name="P_edit_user" ColumnName="P_edit_user" />
+          <ScalarProperty Name="P_create_date" ColumnName="P_create_date" />
+          <ScalarProperty Name="P_update_date" ColumnName="P_update_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relationship">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Relationship">
+        <MappingFragment StoreEntitySet="Relationship">
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+          <ScalarProperty Name="E_id" ColumnName="E_id" />
+          <ScalarProperty Name="relationship1" ColumnName="relationship" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Security">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Security">
+        <MappingFragment StoreEntitySet="Security">
+          <ScalarProperty Name="GB_id" ColumnName="GB_id" />
+          <ScalarProperty Name="gbNumber" ColumnName="gbNumber" />
+          <ScalarProperty Name="cenLng" ColumnName="cenLng" />
+          <ScalarProperty Name="cenLat" ColumnName="cenLat" />
+          <ScalarProperty Name="neLng" ColumnName="neLng" />
+          <ScalarProperty Name="neLat" ColumnName="neLat" />
+          <ScalarProperty Name="swLng" ColumnName="swLng" />
+          <ScalarProperty Name="swLat" ColumnName="swLat" />
+          <ScalarProperty Name="O_id" ColumnName="O_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Time">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.Time">
+        <MappingFragment StoreEntitySet="Time">
+          <ScalarProperty Name="T_id" ColumnName="T_id" />
+          <ScalarProperty Name="N_id" ColumnName="N_id" />
+          <ScalarProperty Name="T_time" ColumnName="T_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Data">
+      <EntityTypeMapping TypeName="Guardian_AngelModel.User_Data">
+        <MappingFragment StoreEntitySet="User_Data">
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+          <ScalarProperty Name="U_lname" ColumnName="U_lname" />
+          <ScalarProperty Name="U_fname" ColumnName="U_fname" />
+          <ScalarProperty Name="U_password" ColumnName="U_password" />
+          <ScalarProperty Name="U_account" ColumnName="U_account" />
+          <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+          <ScalarProperty Name="U_address" ColumnName="U_address" />
+          <ScalarProperty Name="U_organization" ColumnName="U_organization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

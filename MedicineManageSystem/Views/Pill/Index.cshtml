@@ -1,0 +1,137 @@
+﻿@model MedicineManageSystem.Models.PillCategoryViewModel
+
+@{
+    ViewBag.Title = "藥品列表";
+    string Permission = ViewBag.Permission.ToString();
+}
+
+<link href="~/css/jquery.fancybox.min.css" rel="stylesheet" />
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-fancybox="images"]').fancybox({
+            afterLoad: function (instance, current) {
+                var pixelRatio = window.devicePixelRatio || 1;
+
+                if (pixelRatio > 1.5) {
+                    current.width = current.width / pixelRatio;
+                    current.height = current.height / pixelRatio;
+                }
+            }
+        });
+    });
+</script>
+
+
+
+<div class="row">
+    <div class="col-sm-2">
+        <h2>藥廠列表</h2>
+        @foreach (var item in Model.Category)
+        {
+            <p>
+                @Html.ActionLink(item.P_pharmaceutical_factory, "Index", new { cid = item.P_pharmaceutical_factory_Id })
+            </p>
+        }
+    </div>
+
+    <div class="col-sm-10">
+        <h2>藥品列表</h2>
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    藥品編號
+                </th>
+                <th>
+                    藥品代碼
+                </th>
+
+                <th>
+                    藥品名稱
+                </th>
+
+                <th>
+                    商品名
+                </th>
+                <th>
+                    學名
+                </th>
+
+                <th>
+                    適應症
+                </th>
+                <th>
+                    圖片
+                </th>
+                <th>
+                    建立者
+                </th>
+                <th>
+                    建立日期
+                </th>
+                <th>
+                    修改日期
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Pill)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_code)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_product_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_scientific_name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_remark)
+                    </td>
+                    <td>
+                        <a href="~/Images/p/@item.P_photo" data-fancybox="images" data-width="2048" data-height="1365">
+                            <img id="single" src="~/Images/p/@item.P_photo" style="width:120px;" title="放大檢視" />
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_editor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_create_date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.P_update_date)
+                    </td>
+
+                    <td>
+                        @if (Permission.Contains("U"))
+                        {
+                            @Html.ActionLink("編輯", "Edit", new { pid = item.P_id }, new { @class = "btn btn-success" })
+                        }
+                        @if (Permission.Contains("D"))
+                        {
+                            @Html.ActionLink("刪除", "Delete", new { pid = item.P_id }, new { @class = "btn btn-danger", onclick = "return confirm('是否刪除？');" })
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</div>
+
+

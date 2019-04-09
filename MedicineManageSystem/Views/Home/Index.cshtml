@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>會員登入</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <form action="@Url.Action("index")" method="post">
+      <div class="container" style="width:70%;margin-top:30px;">
+          <div class="row">
+              <div class="col">
+                  <div class="card">
+                      <div class="card-header bg-primary">
+                          <h3 class="text-white" style="font-family:Microsoft JhengHei;">會員登入</h3>
+                      </div>
+                      <div class="card-body bg-transparent">
+                          <div class="input-group input-group-lg mb-2">
+                              <span class="input-group-prepend">
+                                  <i class="fas fa-user input-group-text" aria-hidden="true"></i>
+                              </span>
+                              <input type="text" class="form-control" id="帳號" name="帳號" autocomplete="off" placeholder="請輸入帳號">
+                          </div>
+
+                          <div class="input-group input-group-lg mb-2">
+                              <span class="input-group-prepend">
+                                  <i class="fas fa-unlock-alt input-group-text" aria-hidden="true"></i>
+                              </span>
+                              <input type="password" class="form-control" id="密碼" name="密碼" autocomplete="off" placeholder="請輸入密碼">
+                          </div>
+                          <input type="submit" value="登入" style="font-family:Microsoft JhengHei;" class="btn btn-primary btn-lg btn-block mt-3" />
+                          @if (ViewBag.IsLogin != null)
+                          {
+                              <div class="alert alert-danger">
+                                  <strong>帳密錯誤！</strong> 請重新登入
+                              </div>
+                          }
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+</body>
+</html>

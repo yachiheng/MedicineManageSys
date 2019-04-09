@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MedicineManageSystem.Models.Pill_Factory_Category>
+
+@{
+    ViewBag.Title = "藥廠管理";
+    string Permission = ViewBag.Permission.ToString();
+}
+
+<h2>藥廠管理</h2>
+
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            藥廠編號
+        </th>
+        <th>
+            藥廠名稱
+        </th>
+        <th>
+            編輯者
+        </th>
+        <th>
+            建立日期
+        </th>
+        <th>
+            修改日期
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_pharmaceutical_factory_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_pharmaceutical_factory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_edit_user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_create_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_update_date)
+        </td>
+        <td>
+           
+            @if (Permission.Contains("U"))
+            {
+                @Html.ActionLink("編輯", "Edit", new { cid = item.P_pharmaceutical_factory_Id }, new { @class = "btn btn-success" })
+            }
+            @if (Permission.Contains("D"))
+            {
+                @Html.ActionLink("刪除", "Delete", new { cid = item.P_pharmaceutical_factory_Id }, new { @class = "btn btn-danger", onclick = "return confirm('是否刪除？');" })
+            }
+        </td>
+    </tr>
+}
+
+</table>

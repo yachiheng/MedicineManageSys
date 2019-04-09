@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5e92e57fadb74b27aa1da8a7a846b702" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="Guardian_AngelModel.Accident" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.APic" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Consulation" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Emergency_Contact" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.GPS" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Juxtapose" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Manage_Account" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Message" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Notice" Width="1.5" PointX="5.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.NPGrouping" Width="1.5" PointX="7.5" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Oldman_Data" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Pill" Width="1.5" PointX="5.25" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Pill_Factory_Category" Width="1.5" PointX="3" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Relationship" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Security" Width="1.5" PointX="5.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.Time" Width="1.5" PointX="7.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian_AngelModel.User_Data" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Accident_APic" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Accident_Juxtapose" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Accident_Oldman_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Consultation_Oldman_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Relationship_Emergency_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_GPS_Oldman_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Message_Oldman_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Grouping_Notice" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Notice_Oldman_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Time_Notice" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Grouping_Pill1" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Area_Oldman_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Oldman_Data_User_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK_Relationship_Oldman_Data" ManuallyRouted="false" />
+        <AssociationConnector Association="Guardian_AngelModel.FK__Pill__P_pharmace__71D1E811" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
