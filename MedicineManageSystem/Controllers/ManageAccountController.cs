@@ -16,7 +16,7 @@ namespace MedicineManageSystem.Controllers
         {
             string uid = User.Identity.Name;
             string role = ga.Manage_Account.Where(m => m.MamageId == uid).FirstOrDefault().Manage_Role;
-            if (role != "管理者")
+            if (role != "網管")
             {
                 return RedirectToAction("Index", "PermissionErrorMessage", new { msg = "您的身份無管理會員的權限" });
             }
@@ -43,7 +43,7 @@ namespace MedicineManageSystem.Controllers
         {
             string uid = User.Identity.Name;
             string role = ga.Manage_Account.Where(m => m.MamageId == uid).FirstOrDefault().Manage_Role;
-            if (role != "管理者")
+            if (role != "網管")
             {
                 return RedirectToAction("Index", "PermissionErrorMessage", new { msg = "您的身份無管理會員的權限" });
             }
@@ -86,7 +86,7 @@ namespace MedicineManageSystem.Controllers
         {
             string uid = User.Identity.Name;
             string role = ga.Manage_Account.Where(m => m.MamageId == uid).FirstOrDefault().Manage_Role;
-            if (role != "管理者")
+            if (role != "網管")
             {
                 return RedirectToAction("Index", "PermissionErrorMessage", new { msg = "您的身份無管理會員的權限" });
             }
@@ -101,7 +101,7 @@ namespace MedicineManageSystem.Controllers
         {
             string uid = User.Identity.Name;
             string role = ga.Manage_Account.Where(m => m.MamageId == uid).FirstOrDefault().Manage_Role;
-            if (role != "管理者")
+            if (role != "網管")
             {
                 return RedirectToAction("Index", "PermissionErrorMsg", new { msg = "您的身份無管理會員的權限" });
             }
